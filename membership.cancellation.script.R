@@ -6,7 +6,7 @@ library(RCurl)
 library(XML)
 library(EnQuireR)
 
-
+#set working director
 setwd("L:/MSO/data/")
 data <- read_excel("Cancellation_Survey_03222017.xlsx", sheet=1, col_names=TRUE)
 
@@ -62,6 +62,14 @@ col_head <- paste(col_head$id,col_head$Question, sep="-")
 col_head <- c("Resp_ID", col_head)
 
 colnames(df_long) <- col_head 
+
+#graph how long have you been an AWHONN Member
+
+
+
+pl <- ggplot(df_long,aes(factor(`788884-How long have you been an AWHONN member?`)))+geom_bar()
+
+
 
 write.csv(df_long, "canceled_long.csv")
 
