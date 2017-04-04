@@ -246,11 +246,10 @@ pl <- ggplot(df_dues_high,aes(factor(`788898-Are you a member of another profess
   ggtitle("Are you a member of another professional nursing organization?")
 pl
 
+#faceting
 
 
-
-
-#write.csv(df_long, "canceled_long.csv")
-
+pl <- ggplot(df_long,aes(factor(`788894-Overall how happy were you with your AWHONN membership?`))) + geom_bar()
+pl + facet_grid(.~`788898-Are you a member of another professional nursing organization?`)
 
 
